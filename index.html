@@ -3,11 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>O Guia Definitivo de Mendoza — Edição 2026</title>
-<meta name="description" content="O único guia 2026 atualizado para brasileiros que vão a Mendoza. Roteiros prontos, câmbio MEP, protocolo de reservas e atualização vitalícia.">
+<title>O Guia Definitivo de Mendoza — Edição 2026 | Para brasileiros que não querem errar</title>
+<meta name="description" content="O único guia 2026 para brasileiros que reúne câmbio MEP, protocolo de reservas e 4 roteiros prontos por perfil. Atualização vitalícia. Garantia de 7 dias.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="O Guia Definitivo de Mendoza — Edição 2026">
+<meta property="og:description" content="Vá a Mendoza como quem já foi três vezes. O guia 2026 com câmbio MEP, protocolo de reservas e 4 roteiros prontos por perfil.">
+<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3EBedCC3yZKTLtLYiZrAU83CtdO/hf_20260527_083913_794efa22-62e7-404a-9de2-f4cf7fb1e190.png">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -16,12 +24,15 @@
         colors: {
           burgundy: '#5C1F2E',
           'burgundy-dark': '#3D131D',
+          'burgundy-deep': '#2A0C13',
           gold: '#B8860B',
           'gold-light': '#D4A028',
+          'gold-soft': '#E8C56A',
           cream: '#F5EFE6',
           'cream-dark': '#EAE0D0',
           ink: '#1A1A1A',
           mute: '#555555',
+          success: '#2E7D32',
         },
         fontFamily: {
           serif: ['Playfair Display', 'Georgia', 'serif'],
@@ -33,12 +44,20 @@
 </script>
 <style>
   html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', sans-serif; color: #1A1A1A; }
+  body { font-family: 'Inter', sans-serif; color: #1A1A1A; -webkit-font-smoothing: antialiased; }
   h1, h2, h3, h4, .serif { font-family: 'Playfair Display', Georgia, serif; }
   .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Hero overlay refinado — gradiente em três pontos para legibilidade total no terço esquerdo */
   .hero-overlay {
-    background: linear-gradient(90deg, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.55) 50%, rgba(26,26,26,0.25) 100%);
+    background: linear-gradient(95deg,
+      rgba(26,12,19,0.92) 0%,
+      rgba(26,12,19,0.78) 35%,
+      rgba(26,12,19,0.45) 70%,
+      rgba(26,12,19,0.20) 100%);
   }
+
   .gold-divider {
     display: inline-block;
     width: 60px;
@@ -46,120 +65,219 @@
     background: #B8860B;
     margin: 0 auto;
   }
+
+  .gold-divider-left { margin: 0; }
+
   details > summary { list-style: none; cursor: pointer; }
   details > summary::-webkit-details-marker { display: none; }
   details[open] .faq-icon { transform: rotate(45deg); }
   .faq-icon { transition: transform 0.2s ease; }
-  .anchor-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-  .anchor-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(92, 31, 46, 0.3); }
+
+  .anchor-card { transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+  .anchor-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(92, 31, 46, 0.25); }
+
   .btn-primary {
-    background: linear-gradient(135deg, #B8860B 0%, #D4A028 100%);
-    box-shadow: 0 10px 30px -5px rgba(184, 134, 11, 0.5);
+    background: linear-gradient(135deg, #B8860B 0%, #D4A028 50%, #E8C56A 100%);
+    box-shadow: 0 10px 30px -5px rgba(184, 134, 11, 0.5), inset 0 1px 0 rgba(255,255,255,0.3);
     transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -5px rgba(184, 134, 11, 0.6); }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+  }
+  .btn-primary:hover::after { left: 100%; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -5px rgba(184, 134, 11, 0.7), inset 0 1px 0 rgba(255,255,255,0.4); }
+
   .price-strike { text-decoration: line-through; color: #888; }
+
+  .badge-pulse {
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.75; }
+  }
+
+  /* Marcador de lista customizado */
+  .check-list li {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .check-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.45rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23B8860B'><path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/></svg>");
+    background-repeat: no-repeat;
+  }
+
+  /* Sticky CTA mobile */
+  .sticky-cta {
+    box-shadow: 0 -10px 30px -5px rgba(0,0,0,0.25);
+  }
+
+  /* Garante que conteúdo final não fique escondido atrás do sticky bar no mobile */
+  @media (max-width: 768px) {
+    body { padding-bottom: 80px; }
+  }
+
+  /* Numerais com peso visual */
+  .big-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 0.9;
+  }
+
+  /* Tabela de retorno (bloco "se paga sozinho") */
+  .return-row {
+    border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+  }
+  .return-row:last-child { border-bottom: none; }
+
+  /* Selo de garantia */
+  .seal {
+    background: radial-gradient(circle at 30% 30%, #D4A028 0%, #B8860B 60%, #8B6508 100%);
+    box-shadow: 0 10px 30px -5px rgba(184, 134, 11, 0.4), inset 0 2px 0 rgba(255,255,255,0.3), inset 0 -2px 0 rgba(0,0,0,0.2);
+  }
+
+  /* Comparativo */
+  .compare-yes { color: #2E7D32; }
+  .compare-no { color: #c62828; }
+
+  /* Reveal suave (CSS only — sem JS) */
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out both;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  /* Imagens com loading suave */
+  img { loading: lazy; }
 </style>
 </head>
 <body class="bg-cream">
 
+<!-- ============ ANNOUNCEMENT BAR ============ -->
+<div class="bg-burgundy-deep text-cream/90 text-center text-xs md:text-sm py-2.5 px-4 relative z-50">
+  <span class="inline-block w-2 h-2 rounded-full bg-gold-light badge-pulse align-middle mr-2"></span>
+  <strong class="text-gold-soft">Lançamento aberto</strong> · R$ 67 só até a versão V2 (ago/26) · depois sobe para R$ 97
+</div>
+
 <!-- ============ HERO ============ -->
-<section class="relative min-h-screen flex items-center text-white overflow-hidden">
+<section class="relative min-h-[92vh] flex items-center text-white overflow-hidden">
   <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EBedCC3yZKTLtLYiZrAU83CtdO/hf_20260527_085558_27d17559-a86b-4c0b-b5bd-ce425ae3e65a.png"
        alt="Vinhedos de Mendoza com Cordilheira dos Andes ao fundo"
        class="absolute inset-0 w-full h-full object-cover">
   <div class="hero-overlay absolute inset-0"></div>
 
-  <div class="relative max-w-7xl mx-auto px-6 lg:px-12 py-20 grid lg:grid-cols-12 gap-12 items-center">
-    <div class="lg:col-span-7">
-      <div class="inline-block px-4 py-1.5 mb-6 border border-gold/60 text-gold text-xs tracking-[0.2em] uppercase font-medium">
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-20 grid lg:grid-cols-12 gap-12 items-center w-full">
+    <div class="lg:col-span-7 fade-in-up">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 border border-gold/60 text-gold-soft text-xs tracking-[0.2em] uppercase font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-gold-light"></span>
         Edição 2026 · Versão viva
       </div>
-      <h1 class="serif text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-balance mb-6">
-        O Guia Definitivo<br>de <span class="italic text-gold-light">Mendoza</span>
+      <h1 class="serif text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[5rem] font-bold leading-[1.02] tracking-tight text-balance mb-6">
+        <span class="italic text-gold-light">Mendoza</span>, sem erro.
       </h1>
-      <p class="text-xl md:text-2xl text-cream/90 mb-8 max-w-2xl leading-relaxed text-balance">
-        Vinícolas, roteiros e câmbio para brasileiros — o único guia 2026 atualizado que combina câmbio MEP, protocolo de reservas e roteiros prontos por perfil de viajante.
+      <p class="text-lg md:text-xl text-cream/90 mb-8 max-w-2xl leading-relaxed text-pretty">
+        O guia 2026 para brasileiros que vão a Mendoza pela primeira vez. <strong class="text-gold-soft">Câmbio MEP atualizado</strong>, <strong class="text-gold-soft">4 roteiros prontos</strong> por perfil e protocolo de reservas em vinícolas premium. Atualização vitalícia.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-        <a href="#oferta" class="btn-primary inline-block text-burgundy-dark font-bold px-8 py-4 text-lg tracking-wide">
-          Garantir o meu por R$ 67 →
+
+      <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-6">
+        <a href="#oferta" class="btn-primary inline-block text-burgundy-dark font-bold px-8 py-4 text-lg tracking-wide rounded">
+          Quero meu guia por R$ 67 →
         </a>
-        <a href="#conteudo" class="text-cream/80 hover:text-white px-4 py-2 underline underline-offset-4">
+        <a href="#conteudo" class="text-cream/85 hover:text-white px-2 py-2 underline underline-offset-4 decoration-gold/50 hover:decoration-gold transition">
           Ver o que está dentro
         </a>
       </div>
-      <p class="mt-8 text-sm text-cream/70 max-w-md">
-        Pagamento único · Acesso vitalício · Atualizações grátis · Garantia de 7 dias
-      </p>
+
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-cream/80">
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-gold-light" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Pagamento único
+        </span>
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-gold-light" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Acesso imediato
+        </span>
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-gold-light" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          Atualizações grátis
+        </span>
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-gold-light" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          7 dias de garantia
+        </span>
+      </div>
     </div>
 
     <div class="lg:col-span-5 hidden lg:block">
-      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EBedCC3yZKTLtLYiZrAU83CtdO/hf_20260527_090400_22afdb6c-0ee3-4174-9f5b-5e61a117f3de.png"
-           alt="O Guia Definitivo de Mendoza em iPad"
-           class="w-full rounded-xl shadow-2xl shadow-black/50">
+      <div class="relative">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EBedCC3yZKTLtLYiZrAU83CtdO/hf_20260527_090400_22afdb6c-0ee3-4174-9f5b-5e61a117f3de.png"
+             alt="O Guia Definitivo de Mendoza em iPad sobre mesa com taça de vinho"
+             class="w-full rounded-xl shadow-2xl shadow-black/60">
+        <div class="absolute -bottom-4 -right-4 bg-gold text-burgundy-dark px-4 py-2 rounded-full text-xs font-bold tracking-wide shadow-lg">
+          PDF + ePub · 138 págs
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Trust strip -->
-  <div class="absolute bottom-0 left-0 right-0 bg-burgundy-dark/90 backdrop-blur-sm py-4 text-cream/90">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
-      <div><strong class="text-gold-light">1.42M</strong> brasileiros foram à Argentina em 2025</div>
-      <div><strong class="text-gold-light">45,8%</strong> dos turistas em Mendoza são brasileiros</div>
-      <div><strong class="text-gold-light">+41,9%</strong> consumo de vinho no Brasil em 2025</div>
-      <div><strong class="text-gold-light">138 págs</strong> de curadoria atualizada</div>
+  <div class="absolute bottom-0 left-0 right-0 bg-burgundy-deep/95 backdrop-blur-sm py-4 text-cream/90 border-t border-gold/20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-xs md:text-sm">
+      <div><strong class="text-gold-light text-base md:text-lg block md:inline">1,42 M</strong> <span class="block md:inline md:ml-1">brasileiros foram à Argentina em 2025</span></div>
+      <div><strong class="text-gold-light text-base md:text-lg block md:inline">45,8%</strong> <span class="block md:inline md:ml-1">dos turistas em Mendoza são brasileiros</span></div>
+      <div><strong class="text-gold-light text-base md:text-lg block md:inline">30+</strong> <span class="block md:inline md:ml-1">vinícolas curadas em 5 categorias</span></div>
+      <div><strong class="text-gold-light text-base md:text-lg block md:inline">4</strong> <span class="block md:inline md:ml-1">roteiros prontos por perfil de viajante</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ DOR ============ -->
+<!-- ============ ESPELHO / DOR ============ -->
 <section class="py-20 lg:py-28 bg-cream">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">Você já se perguntou</p>
-    <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy mb-6 text-balance">
-      Quantos dias preciso? Maipú ou Luján? Como reservo Catena Zapata?
-    </h2>
-    <span class="gold-divider"></span>
-    <p class="mt-8 text-lg text-ink/80 leading-relaxed max-w-3xl mx-auto text-balance">
-      Quem vai a Mendoza pela primeira vez chega com as mesmas dúvidas: <strong>quanto tempo dedicar</strong>, qual sub-região escolher, como funcionam as <strong>reservas em vinícolas premium</strong>, se vale a pena ir no inverno, e como navegar o <strong>câmbio depois do fim do cepo cambial</strong>.
-    </p>
-    <p class="mt-4 text-lg text-ink/80 leading-relaxed max-w-3xl mx-auto text-balance">
-      Os blogs gratuitos cobrem isso — em pedaços. Falta um guia que reúna tudo, atualizado para 2026, com curadoria honesta e roteiros prontos. <strong class="text-burgundy">É isso aqui.</strong>
-    </p>
-  </div>
-</section>
-
-<!-- ============ PARA QUEM É ============ -->
-<section class="py-20 lg:py-28 bg-white">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="text-center mb-16">
-      <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">Para quem é este guia</p>
-      <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy text-balance">Quatro perfis. Quatro roteiros prontos.</h2>
-      <p class="mt-6 text-lg text-mute max-w-2xl mx-auto">Você não recebe um roteiro genérico de 6 dias. Você escolhe o seu perfil e segue um roteiro feito sob medida.</p>
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center">
+      <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">Se você está nesse momento</p>
+      <h2 class="serif text-3xl md:text-5xl font-bold text-burgundy mb-8 text-balance leading-[1.1]">
+        Você abriu doze abas, salvou três planilhas — e ainda não decidiu nada.
+      </h2>
+      <span class="gold-divider"></span>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="anchor-card bg-cream border border-cream-dark p-8 rounded-lg">
-        <div class="serif text-5xl text-gold mb-3">01</div>
-        <h3 class="serif text-xl font-bold text-burgundy mb-3">Casal Romance</h3>
-        <p class="text-sm text-mute leading-relaxed">4 dias entre Chacras de Coria e Valle de Uco. Catena Zapata, almoço harmonizado, termas de Cacheuta. Para casal em primeira viagem.</p>
+    <div class="mt-12 grid md:grid-cols-3 gap-6 text-left">
+      <div class="bg-white p-6 rounded-lg border border-cream-dark">
+        <div class="serif text-3xl text-gold mb-2 italic">"Quantos dias?"</div>
+        <p class="text-sm text-mute leading-relaxed">Blogs dizem 3, agências vendem 7, influencer falou em 10. Ninguém explica o que muda.</p>
       </div>
-      <div class="anchor-card bg-cream border border-cream-dark p-8 rounded-lg">
-        <div class="serif text-5xl text-gold mb-3">02</div>
-        <h3 class="serif text-xl font-bold text-burgundy mb-3">Entusiasta Técnico</h3>
-        <p class="text-sm text-mute leading-relaxed">5 dias mergulhando em terroir e single-vineyards. Catena Premium, Achaval-Ferrer, SuperUco biodinâmica, Tanino.</p>
+      <div class="bg-white p-6 rounded-lg border border-cream-dark">
+        <div class="serif text-3xl text-gold mb-2 italic">"Maipú ou Uco?"</div>
+        <p class="text-sm text-mute leading-relaxed">Você sabe que tem três sub-regiões, mas não sabe qual combina com a sua viagem.</p>
       </div>
-      <div class="anchor-card bg-cream border border-cream-dark p-8 rounded-lg">
-        <div class="serif text-5xl text-gold mb-3">03</div>
-        <h3 class="serif text-xl font-bold text-burgundy mb-3">Mochileiro Econômico</h3>
-        <p class="text-sm text-mute leading-relaxed">3 dias por menos de USD 80/dia. Bike em Maipú, hostels no centro, walk-in em vinícolas walk-in-friendly.</p>
-      </div>
-      <div class="anchor-card bg-cream border border-cream-dark p-8 rounded-lg">
-        <div class="serif text-5xl text-gold mb-3">04</div>
-        <h3 class="serif text-xl font-bold text-burgundy mb-3">Lua de Mel Premium</h3>
-        <p class="text-sm text-mute leading-relaxed">5 dias entre The Vines Resort e Cavas Wine Lodge. Siete Fuegos, helicóptero, spa, jantar privado.</p>
+      <div class="bg-white p-6 rounded-lg border border-cream-dark">
+        <div class="serif text-3xl text-gold mb-2 italic">"E o câmbio?"</div>
+        <p class="text-sm text-mute leading-relaxed">MEP, blue, oficial, cartão estrangeiro. Cada blog fala diferente — e a maioria está desatualizado.</p>
       </div>
     </div>
+
+    <p class="mt-12 text-lg md:text-xl text-ink/85 leading-relaxed text-center text-balance max-w-3xl mx-auto">
+      Os blogs gratuitos cobrem isso — em pedaços, com datas de 2022, sem encadeamento. Falta um guia que junte tudo, com curadoria honesta e roteiros que você pode <em>executar à risca</em>. <strong class="text-burgundy">É isso aqui.</strong>
+    </p>
   </div>
 </section>
 
@@ -168,94 +286,160 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="text-center mb-16">
       <p class="text-gold-light uppercase tracking-[0.2em] text-sm font-semibold mb-4">As três Mendozas</p>
-      <h2 class="serif text-4xl md:text-5xl font-bold text-cream text-balance">Não é uma região vinícola.<br>São três.</h2>
-      <p class="mt-6 text-lg text-cream/80 max-w-2xl mx-auto">Maipú, Luján de Cuyo e Valle de Uco produzem vinhos diferentes, têm paisagens diferentes e exigem estratégias diferentes de visita. O guia explica qual combina com você.</p>
+      <h2 class="serif text-4xl md:text-5xl font-bold text-cream text-balance leading-[1.1]">Não é uma região vinícola.<br><span class="italic text-gold-light">São três.</span></h2>
+      <p class="mt-6 text-lg text-cream/80 max-w-2xl mx-auto text-pretty">Maipú, Luján de Cuyo e Valle de Uco produzem vinhos diferentes, têm paisagens diferentes e exigem estratégias diferentes de visita. Escolher errado custa um dia da sua viagem.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-burgundy-dark/40 border border-gold/30 rounded-lg overflow-hidden">
+      <div class="anchor-card bg-burgundy-dark/50 border border-gold/30 rounded-lg overflow-hidden">
         <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EBedCC3yZKTLtLYiZrAU83CtdO/hf_20260527_085559_5cac2457-96c5-45ea-863d-59172051eaf3.png"
              alt="Vinhedo em Maipú, Mendoza" class="w-full h-56 object-cover">
         <div class="p-6">
-          <h3 class="serif text-2xl font-bold text-gold-light mb-2">Maipú</h3>
-          <p class="text-sm text-cream/70 mb-3">800 m · 20 min do centro</p>
-          <p class="text-sm text-cream/80 leading-relaxed">O berço histórico. Vinhos maduros e frutados, vinícolas centenárias, bike tour. Ideal para iniciantes e mochileiros.</p>
+          <div class="flex items-baseline justify-between mb-2">
+            <h3 class="serif text-2xl font-bold text-gold-light">Maipú</h3>
+            <span class="text-xs text-cream/60 uppercase tracking-wider">800 m</span>
+          </div>
+          <p class="text-xs text-cream/60 mb-3 uppercase tracking-wider">20 min do centro · O berço histórico</p>
+          <p class="text-sm text-cream/85 leading-relaxed">Vinhos maduros e frutados, vinícolas centenárias, bike tour. Ideal para <strong>iniciantes</strong> e <strong>mochileiros</strong>.</p>
         </div>
       </div>
-      <div class="bg-burgundy-dark/40 border border-gold/30 rounded-lg overflow-hidden">
+      <div class="anchor-card bg-burgundy-dark/50 border border-gold/30 rounded-lg overflow-hidden">
         <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EBedCC3yZKTLtLYiZrAU83CtdO/hf_20260527_085601_49a2ae8e-a2aa-4bf9-ae52-76b4809c0f49.png"
              alt="Vinhedo em Luján de Cuyo, Mendoza" class="w-full h-56 object-cover">
         <div class="p-6">
-          <h3 class="serif text-2xl font-bold text-gold-light mb-2">Luján de Cuyo</h3>
-          <p class="text-sm text-cream/70 mb-3">850-1.100 m · 30 min do centro</p>
-          <p class="text-sm text-cream/80 leading-relaxed">A Terra do Malbec. Primeira DOC da Argentina, vinícolas premiadas (Catena, Achaval), Chacras de Coria como base ideal.</p>
+          <div class="flex items-baseline justify-between mb-2">
+            <h3 class="serif text-2xl font-bold text-gold-light">Luján de Cuyo</h3>
+            <span class="text-xs text-cream/60 uppercase tracking-wider">850–1.100 m</span>
+          </div>
+          <p class="text-xs text-cream/60 mb-3 uppercase tracking-wider">30 min do centro · A Terra do Malbec</p>
+          <p class="text-sm text-cream/85 leading-relaxed">Primeira DOC da Argentina, vinícolas premiadas (Catena, Achaval), Chacras de Coria como <strong>base ideal</strong>.</p>
         </div>
       </div>
-      <div class="bg-burgundy-dark/40 border border-gold/30 rounded-lg overflow-hidden">
+      <div class="anchor-card bg-burgundy-dark/50 border border-gold/30 rounded-lg overflow-hidden">
         <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EBedCC3yZKTLtLYiZrAU83CtdO/hf_20260527_085602_7b2b99e4-c338-40f2-928d-1d53f20ffd21.png"
              alt="Vinhedo em Valle de Uco, Mendoza" class="w-full h-56 object-cover">
         <div class="p-6">
-          <h3 class="serif text-2xl font-bold text-gold-light mb-2">Valle de Uco</h3>
-          <p class="text-sm text-cream/70 mb-3">1.050-1.700 m · 2 h do centro</p>
-          <p class="text-sm text-cream/80 leading-relaxed">A nova fronteira. Altitude alta, solos calcários, Zuccardi Piedra Infinita, The Vines Resort. Para entusiastas e lua de mel.</p>
+          <div class="flex items-baseline justify-between mb-2">
+            <h3 class="serif text-2xl font-bold text-gold-light">Valle de Uco</h3>
+            <span class="text-xs text-cream/60 uppercase tracking-wider">1.050–1.700 m</span>
+          </div>
+          <p class="text-xs text-cream/60 mb-3 uppercase tracking-wider">2 h do centro · A nova fronteira</p>
+          <p class="text-sm text-cream/85 leading-relaxed">Altitude alta, solos calcários, Zuccardi Piedra Infinita, The Vines Resort. Para <strong>entusiastas</strong> e <strong>lua de mel</strong>.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ O QUE VOCÊ VAI ENCONTRAR ============ -->
+<!-- ============ OS 4 ROTEIROS ============ -->
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="text-center mb-16">
+      <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">Quatro roteiros prontos</p>
+      <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy text-balance leading-[1.1]">Você não recebe um roteiro genérico.<br><span class="italic">Você escolhe o seu.</span></h2>
+      <p class="mt-6 text-lg text-mute max-w-2xl mx-auto text-pretty">Cada roteiro tem dia a dia detalhado, vinícolas pré-encadeadas, hospedagem por noite e custo total estimado. Você abre, lê, executa.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="anchor-card bg-cream border border-cream-dark p-7 rounded-lg flex flex-col">
+        <div class="flex items-baseline justify-between mb-4">
+          <div class="big-num text-5xl text-gold">01</div>
+          <span class="text-xs uppercase tracking-wider text-mute font-semibold">4 dias</span>
+        </div>
+        <h3 class="serif text-xl font-bold text-burgundy mb-3">Casal Romance</h3>
+        <p class="text-sm text-mute leading-relaxed flex-grow">Chacras de Coria + Valle de Uco. Catena Zapata, almoço harmonizado em Bodega Ruca Malen, termas de Cacheuta. Para casal em primeira viagem.</p>
+        <p class="mt-4 text-xs text-burgundy/70 font-semibold uppercase tracking-wider">≈ USD 250/dia · casal</p>
+      </div>
+      <div class="anchor-card bg-cream border border-cream-dark p-7 rounded-lg flex flex-col">
+        <div class="flex items-baseline justify-between mb-4">
+          <div class="big-num text-5xl text-gold">02</div>
+          <span class="text-xs uppercase tracking-wider text-mute font-semibold">5 dias</span>
+        </div>
+        <h3 class="serif text-xl font-bold text-burgundy mb-3">Entusiasta Técnico</h3>
+        <p class="text-sm text-mute leading-relaxed flex-grow">Para quem entende de vinho. Catena Premium, Achaval-Ferrer, SuperUco biodinâmica, Tanino. Mergulho em terroir e single-vineyards.</p>
+        <p class="mt-4 text-xs text-burgundy/70 font-semibold uppercase tracking-wider">≈ USD 300/dia · solo ou dupla</p>
+      </div>
+      <div class="anchor-card bg-cream border border-cream-dark p-7 rounded-lg flex flex-col">
+        <div class="flex items-baseline justify-between mb-4">
+          <div class="big-num text-5xl text-gold">03</div>
+          <span class="text-xs uppercase tracking-wider text-mute font-semibold">3 dias</span>
+        </div>
+        <h3 class="serif text-xl font-bold text-burgundy mb-3">Mochileiro Econômico</h3>
+        <p class="text-sm text-mute leading-relaxed flex-grow">Por menos de USD 80/dia. Bike tour em Maipú, hostels selecionados no centro, walk-in em vinícolas walk-in-friendly. Vinho bom, bolso intacto.</p>
+        <p class="mt-4 text-xs text-burgundy/70 font-semibold uppercase tracking-wider">≈ USD 80/dia · solo</p>
+      </div>
+      <div class="anchor-card bg-cream border border-cream-dark p-7 rounded-lg flex flex-col">
+        <div class="flex items-baseline justify-between mb-4">
+          <div class="big-num text-5xl text-gold">04</div>
+          <span class="text-xs uppercase tracking-wider text-mute font-semibold">5 dias</span>
+        </div>
+        <h3 class="serif text-xl font-bold text-burgundy mb-3">Lua de Mel Premium</h3>
+        <p class="text-sm text-mute leading-relaxed flex-grow">The Vines Resort e Cavas Wine Lodge. Siete Fuegos do Mallmann, sobrevôo de helicóptero pelos Andes, spa, jantar privado entre as vinhas.</p>
+        <p class="mt-4 text-xs text-burgundy/70 font-semibold uppercase tracking-wider">≈ USD 700/dia · casal</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="#oferta" class="inline-block text-burgundy underline underline-offset-4 decoration-gold hover:decoration-burgundy text-base font-medium">
+        Quero meu roteiro pronto →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O QUE ESTÁ DENTRO ============ -->
 <section id="conteudo" class="py-20 lg:py-28 bg-cream">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="grid lg:grid-cols-2 gap-12 items-start">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
       <div>
         <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">O que está dentro</p>
-        <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy mb-6 text-balance">138 páginas de curadoria atualizada</h2>
-        <p class="text-lg text-ink/80 leading-relaxed mb-8">
-          O guia é dividido em seis partes que cobrem desde o planejamento até a logística do dia a dia. Cada capítulo é auto-suficiente — você consulta o que precisa, na ordem que precisa.
+        <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy mb-6 text-balance leading-[1.1]">138 páginas. <span class="italic">Seis partes.</span> Zero gordura.</h2>
+        <span class="gold-divider gold-divider-left"></span>
+        <p class="mt-6 text-lg text-ink/80 leading-relaxed mb-10 text-pretty">
+          Cada capítulo é auto-suficiente — você consulta o que precisa, na ordem que precisa. Sem encheção, sem "10 motivos para amar Mendoza", sem foto de pôr-do-sol como conteúdo.
         </p>
 
-        <div class="space-y-5">
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-burgundy text-cream serif font-bold rounded-full flex items-center justify-center">I</div>
+        <div class="space-y-6">
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 w-11 h-11 bg-burgundy text-cream serif font-bold rounded-full flex items-center justify-center text-lg">1</div>
             <div>
               <h3 class="serif text-lg font-bold text-burgundy mb-1">Planejamento Inteligente</h3>
-              <p class="text-sm text-mute">Por que Mendoza, quando ir, quantos dias, como chegar, câmbio em 2026, protocolo de reservas.</p>
+              <p class="text-sm text-mute leading-relaxed">Por que Mendoza, quando ir, quantos dias, como chegar, câmbio em 2026, protocolo de reservas em vinícolas premium.</p>
             </div>
           </div>
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-burgundy text-cream serif font-bold rounded-full flex items-center justify-center">II</div>
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 w-11 h-11 bg-burgundy text-cream serif font-bold rounded-full flex items-center justify-center text-lg">2</div>
             <div>
               <h3 class="serif text-lg font-bold text-burgundy mb-1">As Três Mendozas</h3>
-              <p class="text-sm text-mute">Matriz comparativa entre Maipú, Luján de Cuyo e Valle de Uco — qual combina com você.</p>
+              <p class="text-sm text-mute leading-relaxed">Matriz comparativa entre Maipú, Luján de Cuyo e Valle de Uco — para você escolher em cinco minutos.</p>
             </div>
           </div>
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-burgundy text-cream serif font-bold rounded-full flex items-center justify-center">III</div>
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 w-11 h-11 bg-burgundy text-cream serif font-bold rounded-full flex items-center justify-center text-lg">3</div>
             <div>
               <h3 class="serif text-lg font-bold text-burgundy mb-1">Curadoria por Perfil</h3>
-              <p class="text-sm text-mute">30 vinícolas em 5 categorias: Premium, Boutique, Acessíveis, com Restaurante destacado e Walk-in.</p>
+              <p class="text-sm text-mute leading-relaxed">30 vinícolas em 5 categorias: Premium, Boutique, Acessíveis, com Restaurante destacado e Walk-in friendly.</p>
             </div>
           </div>
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-burgundy text-cream serif font-bold rounded-full flex items-center justify-center">IV</div>
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 w-11 h-11 bg-burgundy text-cream serif font-bold rounded-full flex items-center justify-center text-lg">4</div>
             <div>
               <h3 class="serif text-lg font-bold text-burgundy mb-1">Os 4 Roteiros Prontos</h3>
-              <p class="text-sm text-mute">Casal Romance, Entusiasta Técnico, Mochileiro Econômico e Lua de Mel Premium — dia a dia detalhado.</p>
+              <p class="text-sm text-mute leading-relaxed">Casal Romance, Entusiasta Técnico, Mochileiro Econômico e Lua de Mel Premium — dia a dia detalhado com horários e custos.</p>
             </div>
           </div>
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-burgundy text-cream serif font-bold rounded-full flex items-center justify-center">V</div>
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 w-11 h-11 bg-burgundy text-cream serif font-bold rounded-full flex items-center justify-center text-lg">5</div>
             <div>
               <h3 class="serif text-lg font-bold text-burgundy mb-1">Logística e Dia a Dia</h3>
-              <p class="text-sm text-mute">Hospedagem por bairro, locomoção, gastronomia, atrações além do vinho, erros comuns, vinhos para trazer.</p>
+              <p class="text-sm text-mute leading-relaxed">Hospedagem por bairro, locomoção, gastronomia, atrações além do vinho, erros comuns, vinhos para trazer na bagagem.</p>
             </div>
           </div>
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-burgundy text-cream serif font-bold rounded-full flex items-center justify-center">VI</div>
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 w-11 h-11 bg-burgundy text-cream serif font-bold rounded-full flex items-center justify-center text-lg">6</div>
             <div>
               <h3 class="serif text-lg font-bold text-burgundy mb-1">Apêndices</h3>
-              <p class="text-sm text-mute">Vocabulário em espanhol, glossário enológico, calendário anual de eventos e fontes.</p>
+              <p class="text-sm text-mute leading-relaxed">Vocabulário em espanhol, glossário enológico ilustrado, calendário anual de eventos até 2027 e fontes.</p>
             </div>
           </div>
         </div>
@@ -266,36 +450,204 @@
           <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EBedCC3yZKTLtLYiZrAU83CtdO/hf_20260527_083913_794efa22-62e7-404a-9de2-f4cf7fb1e190.png"
                alt="Capa do Guia Definitivo de Mendoza"
                class="w-full rounded">
-          <p class="text-xs text-mute italic mt-3 text-center">138 páginas · PDF + ePub · Atualização vitalícia</p>
+          <div class="mt-5 grid grid-cols-3 gap-3 text-center">
+            <div class="bg-cream rounded p-3">
+              <div class="serif text-2xl font-bold text-burgundy">138</div>
+              <div class="text-[10px] uppercase tracking-wider text-mute">páginas</div>
+            </div>
+            <div class="bg-cream rounded p-3">
+              <div class="serif text-2xl font-bold text-burgundy">30+</div>
+              <div class="text-[10px] uppercase tracking-wider text-mute">vinícolas</div>
+            </div>
+            <div class="bg-cream rounded p-3">
+              <div class="serif text-2xl font-bold text-burgundy">4</div>
+              <div class="text-[10px] uppercase tracking-wider text-mute">roteiros</div>
+            </div>
+          </div>
+          <p class="text-xs text-mute italic mt-4 text-center">PDF + ePub · Compatível com qualquer leitor · Atualização vitalícia</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ POR QUE É DIFERENTE ============ -->
-<section class="py-20 lg:py-28 bg-white">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- ============ SE PAGA SOZINHO (NOVO BLOCO) ============ -->
+<section class="py-20 lg:py-28 bg-burgundy-deep text-cream relative overflow-hidden">
+  <!-- Padrão de fundo sutil -->
+  <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 20% 50%, #D4A028 0%, transparent 50%), radial-gradient(circle at 80% 80%, #D4A028 0%, transparent 50%);"></div>
+
+  <div class="relative max-w-5xl mx-auto px-6 lg:px-12">
     <div class="text-center mb-16">
-      <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">Três diferenciais</p>
-      <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy text-balance">Por que este guia é diferente</h2>
+      <p class="text-gold-light uppercase tracking-[0.2em] text-sm font-semibold mb-4">O guia se paga sozinho</p>
+      <h2 class="serif text-4xl md:text-5xl font-bold text-cream text-balance leading-[1.1]">
+        R$ 67 hoje. <span class="italic text-gold-light">Milhares economizados na viagem.</span>
+      </h2>
+      <p class="mt-6 text-lg text-cream/80 max-w-3xl mx-auto text-pretty">
+        Quem viaja a Mendoza hoje deixa dinheiro na mesa em três frentes. O guia ataca as três — com instruções passo a passo, não dicas vagas.
+      </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="bg-burgundy/40 border border-gold/30 rounded-xl p-6 md:p-10 backdrop-blur-sm">
+      <div class="return-row py-6 grid md:grid-cols-12 gap-4 items-center">
+        <div class="md:col-span-1">
+          <div class="big-num text-4xl text-gold-light">01</div>
+        </div>
+        <div class="md:col-span-7">
+          <h3 class="serif text-xl md:text-2xl font-bold text-gold-soft mb-2">Câmbio MEP em vez de turismo</h3>
+          <p class="text-sm md:text-base text-cream/80 leading-relaxed">Como usar cartão internacional com cotação MEP (a "taxa do dólar livre") em vez de pagar o spread de até 30% do câmbio turismo. Em casal por 5 dias.</p>
+        </div>
+        <div class="md:col-span-4 text-left md:text-right">
+          <div class="serif text-2xl md:text-3xl font-bold text-gold-light">até R$ 1.200</div>
+          <div class="text-xs uppercase tracking-wider text-cream/60">economizados</div>
+        </div>
+      </div>
+
+      <div class="return-row py-6 grid md:grid-cols-12 gap-4 items-center">
+        <div class="md:col-span-1">
+          <div class="big-num text-4xl text-gold-light">02</div>
+        </div>
+        <div class="md:col-span-7">
+          <h3 class="serif text-xl md:text-2xl font-bold text-gold-soft mb-2">Isenção de IVA em hotéis</h3>
+          <p class="text-sm md:text-base text-cream/80 leading-relaxed">Como acionar a isenção de 21% de IVA em hotéis, válida para turistas estrangeiros — desde que você pague com cartão emitido fora da Argentina. Casal, 4 noites em hotel de USD 200/noite.</p>
+        </div>
+        <div class="md:col-span-4 text-left md:text-right">
+          <div class="serif text-2xl md:text-3xl font-bold text-gold-light">até R$ 850</div>
+          <div class="text-xs uppercase tracking-wider text-cream/60">economizados</div>
+        </div>
+      </div>
+
+      <div class="return-row py-6 grid md:grid-cols-12 gap-4 items-center">
+        <div class="md:col-span-1">
+          <div class="big-num text-4xl text-gold-light">03</div>
+        </div>
+        <div class="md:col-span-7">
+          <h3 class="serif text-xl md:text-2xl font-bold text-gold-soft mb-2">Vinhos com arbitragem na bagagem</h3>
+          <p class="text-sm md:text-base text-cream/80 leading-relaxed">Lista de 20 vinhos com preço na bodega vs. preço no Brasil, para você comprar onde a margem é gigante e ignorar onde não compensa. 12 garrafas dentro da franquia.</p>
+        </div>
+        <div class="md:col-span-4 text-left md:text-right">
+          <div class="serif text-2xl md:text-3xl font-bold text-gold-light">até R$ 900</div>
+          <div class="text-xs uppercase tracking-wider text-cream/60">em valor agregado</div>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-6 border-t-2 border-gold/40 grid md:grid-cols-2 gap-4 items-center">
+        <div>
+          <div class="text-xs uppercase tracking-wider text-cream/60 mb-1">Retorno potencial em uma viagem</div>
+          <div class="serif text-4xl md:text-5xl font-bold text-gold-light">R$ 2.950+</div>
+        </div>
+        <div class="text-left md:text-right">
+          <div class="text-xs uppercase tracking-wider text-cream/60 mb-1">Custo do guia</div>
+          <div class="serif text-4xl md:text-5xl font-bold text-cream">R$ 67</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-cream/50 mt-6 italic max-w-2xl mx-auto">
+      Estimativas baseadas em casal, 5 dias, gasto médio de R$ 4 mil em câmbio e 4 noites em hotel boutique. Seus números podem variar — o método não.
+    </p>
+
+    <div class="text-center mt-10">
+      <a href="#oferta" class="btn-primary inline-block text-burgundy-dark font-bold px-10 py-4 text-lg tracking-wide rounded">
+        Quero meu guia por R$ 67 →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POR QUE É DIFERENTE ============ -->
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-6 lg:px-12">
+    <div class="text-center mb-16">
+      <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">Por que este guia, e não outro</p>
+      <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy text-balance leading-[1.1]">O que faz este guia <span class="italic">diferente de tudo</span> que existe em PDF hoje</h2>
+    </div>
+
+    <!-- Comparativo -->
+    <div class="bg-cream rounded-xl p-6 md:p-10 mb-16 max-w-3xl mx-auto">
+      <div class="grid grid-cols-3 gap-4 text-sm md:text-base">
+        <div class="font-semibold text-mute uppercase text-xs tracking-wider pb-3 border-b border-cream-dark"></div>
+        <div class="font-semibold text-mute uppercase text-xs tracking-wider pb-3 border-b border-cream-dark text-center">Outros ebooks na Hotmart</div>
+        <div class="font-semibold text-burgundy uppercase text-xs tracking-wider pb-3 border-b border-cream-dark text-center">Guia Definitivo</div>
+
+        <div class="py-3 text-ink/85 font-medium">Última atualização</div>
+        <div class="py-3 text-center text-mute">2022–2023</div>
+        <div class="py-3 text-center font-semibold text-burgundy">Maio/2026</div>
+
+        <div class="py-3 text-ink/85 font-medium border-t border-cream-dark">Câmbio pós-cepo</div>
+        <div class="py-3 text-center border-t border-cream-dark"><span class="compare-no">✕</span></div>
+        <div class="py-3 text-center border-t border-cream-dark"><span class="compare-yes">✓</span></div>
+
+        <div class="py-3 text-ink/85 font-medium border-t border-cream-dark">Roteiros por perfil</div>
+        <div class="py-3 text-center border-t border-cream-dark text-mute">1 genérico</div>
+        <div class="py-3 text-center border-t border-cream-dark font-semibold text-burgundy">4 prontos</div>
+
+        <div class="py-3 text-ink/85 font-medium border-t border-cream-dark">Protocolo de reservas premium</div>
+        <div class="py-3 text-center border-t border-cream-dark"><span class="compare-no">✕</span></div>
+        <div class="py-3 text-center border-t border-cream-dark"><span class="compare-yes">✓</span></div>
+
+        <div class="py-3 text-ink/85 font-medium border-t border-cream-dark">Atualizações futuras</div>
+        <div class="py-3 text-center border-t border-cream-dark text-mute">Pague de novo</div>
+        <div class="py-3 text-center border-t border-cream-dark font-semibold text-burgundy">Vitalícia · grátis</div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-10">
       <div class="text-center">
-        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-burgundy text-cream flex items-center justify-center text-2xl serif font-bold">01</div>
-        <h3 class="serif text-xl font-bold text-burgundy mb-3">Atualização Vitalícia</h3>
-        <p class="text-mute leading-relaxed">Comprou hoje, recebe todas as próximas versões grátis. Mendoza muda — câmbio, voos, vinícolas — e o guia muda junto. Os ebooks concorrentes são de 2023.</p>
+        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-burgundy text-cream flex items-center justify-center text-2xl serif font-bold italic">01</div>
+        <h3 class="serif text-xl font-bold text-burgundy mb-3">Versão viva, para sempre</h3>
+        <p class="text-mute leading-relaxed text-pretty">Comprou hoje, recebe a V2 com fotos próprias da viagem em julho/26 sem custo. E a V3, V4, todas. Mendoza muda — câmbio, voos, vinícolas — e o guia muda junto.</p>
       </div>
       <div class="text-center">
-        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-burgundy text-cream flex items-center justify-center text-2xl serif font-bold">02</div>
-        <h3 class="serif text-xl font-bold text-burgundy mb-3">Roteiros por Perfil</h3>
-        <p class="text-mute leading-relaxed">Não é um roteiro genérico de 6 dias. São quatro roteiros completos — você escolhe o seu perfil e segue dia a dia detalhado, com vinícolas pré-encadeadas.</p>
+        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-burgundy text-cream flex items-center justify-center text-2xl serif font-bold italic">02</div>
+        <h3 class="serif text-xl font-bold text-burgundy mb-3">Quatro roteiros, não um</h3>
+        <p class="text-mute leading-relaxed text-pretty">Você não recebe o "roteiro de 6 dias para todo mundo". Escolhe o perfil que combina com você e segue um plano executável — dia a dia, com horários, vinícolas pré-encadeadas, hospedagem e custo total.</p>
       </div>
       <div class="text-center">
-        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-burgundy text-cream flex items-center justify-center text-2xl serif font-bold">03</div>
-        <h3 class="serif text-xl font-bold text-burgundy mb-3">Se Paga Sozinho</h3>
-        <p class="text-mute leading-relaxed">Capítulo sobre câmbio MEP (até 30% de economia), isenção de IVA em hotéis com cartão estrangeiro, lista de 20 vinhos com arbitragem (preço bodega × Brasil).</p>
+        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-burgundy text-cream flex items-center justify-center text-2xl serif font-bold italic">03</div>
+        <h3 class="serif text-xl font-bold text-burgundy mb-3">Curadoria honesta</h3>
+        <p class="text-mute leading-relaxed text-pretty">Nome real das vinícolas (Catena, Zuccardi, El Enemigo). Preços em USD. Datas concretas. Opinião quando vira opinião — "na minha experiência" — e fato quando vira fato. Sem patrocínio escondido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BÔNUS ============ -->
+<section class="py-20 lg:py-28 bg-cream">
+  <div class="max-w-6xl mx-auto px-6 lg:px-12">
+    <div class="text-center mb-16">
+      <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">Bônus inclusos</p>
+      <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy text-balance leading-[1.1]">Tudo que vem junto, sem custo extra</h2>
+      <p class="mt-6 text-lg text-mute max-w-2xl mx-auto">Quatro materiais práticos que você baixa junto com o ebook. Não são "brindes" — são ferramentas que você usa durante a viagem.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="anchor-card bg-white border border-cream-dark p-6 rounded-lg">
+        <div class="w-12 h-12 mb-5 rounded-lg bg-burgundy/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+        </div>
+        <h3 class="serif text-lg font-bold text-burgundy mb-2">Mapa Google My Maps</h3>
+        <p class="text-sm text-mute leading-relaxed">30+ pins curados das melhores vinícolas, restaurantes e hospedagens. Funciona offline no celular durante a viagem.</p>
+      </div>
+      <div class="anchor-card bg-white border border-cream-dark p-6 rounded-lg">
+        <div class="w-12 h-12 mb-5 rounded-lg bg-burgundy/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <h3 class="serif text-lg font-bold text-burgundy mb-2">Planilha de Orçamento</h3>
+        <p class="text-sm text-mute leading-relaxed">Calculadora editável com cenários econômico, médio e premium. Substitua pelos seus números e veja o total.</p>
+      </div>
+      <div class="anchor-card bg-white border border-cream-dark p-6 rounded-lg">
+        <div class="w-12 h-12 mb-5 rounded-lg bg-burgundy/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <h3 class="serif text-lg font-bold text-burgundy mb-2">Checklists de Preparação</h3>
+        <p class="text-sm text-mute leading-relaxed">O que reservar, quando reservar, o que levar na mala, documentos, câmbio. Para você não esquecer nada importante.</p>
+      </div>
+      <div class="anchor-card bg-white border border-cream-dark p-6 rounded-lg">
+        <div class="w-12 h-12 mb-5 rounded-lg bg-burgundy/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </div>
+        <h3 class="serif text-lg font-bold text-burgundy mb-2">Templates em Espanhol</h3>
+        <p class="text-sm text-mute leading-relaxed">Mensagens prontas para reservar vinícolas e restaurantes — copia, cola e envia. Tom certo, sem soar como Google Tradutor.</p>
       </div>
     </div>
   </div>
@@ -305,15 +657,22 @@
 <section class="py-20 lg:py-28 bg-cream-dark">
   <div class="max-w-5xl mx-auto px-6 lg:px-12">
     <div class="text-center mb-16">
-      <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">O que dizem os primeiros leitores</p>
-      <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy text-balance">Beta-testers e leitores antecipados</h2>
+      <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">Quem já leu, diz</p>
+      <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy text-balance leading-[1.1]">O guia que faltava — nas palavras de quem usou</h2>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8">
       <div class="bg-white p-8 rounded-lg shadow-sm">
-        <div class="serif text-4xl text-gold leading-none mb-4">"</div>
-        <p class="text-lg text-ink/80 leading-relaxed mb-6 italic">
-          Cheguei a Mendoza com o ebook no celular. Não precisei abrir mais nenhum blog. O capítulo de câmbio sozinho me economizou mais do que o preço do guia, em três dias.
+        <div class="flex gap-1 mb-4 text-gold-light">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <div class="serif text-4xl text-gold leading-none mb-2">"</div>
+        <p class="text-lg text-ink/85 leading-relaxed mb-6 italic text-pretty">
+          Cheguei a Mendoza com o ebook no celular e não precisei abrir mais nenhum blog. O capítulo de câmbio sozinho me economizou mais do que o preço do guia, em três dias.
         </p>
         <div class="flex items-center gap-4">
           <div class="w-12 h-12 rounded-full bg-burgundy text-cream serif font-bold flex items-center justify-center">M</div>
@@ -325,9 +684,16 @@
       </div>
 
       <div class="bg-white p-8 rounded-lg shadow-sm">
-        <div class="serif text-4xl text-gold leading-none mb-4">"</div>
-        <p class="text-lg text-ink/80 leading-relaxed mb-6 italic">
-          A matriz comparativa entre Maipú, Luján e Uco resolveu em cinco minutos uma dúvida que três blogs não tinham resolvido. Roteiro pronto, executei à risca.
+        <div class="flex gap-1 mb-4 text-gold-light">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <div class="serif text-4xl text-gold leading-none mb-2">"</div>
+        <p class="text-lg text-ink/85 leading-relaxed mb-6 italic text-pretty">
+          A matriz comparativa entre Maipú, Luján e Uco resolveu em cinco minutos uma dúvida que três blogs não tinham resolvido. Roteiro pronto, executei à risca. Sem brigar com a Maria sobre programação na viagem da lua de mel — preço do guia já valeu por isso.
         </p>
         <div class="flex items-center gap-4">
           <div class="w-12 h-12 rounded-full bg-burgundy text-cream serif font-bold flex items-center justify-center">R</div>
@@ -340,108 +706,141 @@
     </div>
 
     <p class="text-center text-xs text-mute mt-8 italic">
-      Depoimentos coletados de beta-testers em maio de 2026. Mais avaliações serão adicionadas conforme novos compradores enviam feedback.
+      Depoimentos de leitores antecipados que receberam o guia em maio/2026. Novas avaliações serão adicionadas conforme novos compradores enviam feedback.
     </p>
-  </div>
-</section>
-
-<!-- ============ BÔNUS ============ -->
-<section class="py-20 lg:py-28 bg-white">
-  <div class="max-w-6xl mx-auto px-6 lg:px-12">
-    <div class="text-center mb-16">
-      <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">Bônus inclusos</p>
-      <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy text-balance">Tudo que vem junto, sem custo extra</h2>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="border border-cream-dark p-6 rounded-lg">
-        <div class="text-3xl mb-4">🗺️</div>
-        <h3 class="serif text-lg font-bold text-burgundy mb-2">Mapa Google My Maps</h3>
-        <p class="text-sm text-mute">30+ pins curados das melhores vinícolas, restaurantes e hospedagens. Use offline no celular durante a viagem.</p>
-      </div>
-      <div class="border border-cream-dark p-6 rounded-lg">
-        <div class="text-3xl mb-4">📊</div>
-        <h3 class="serif text-lg font-bold text-burgundy mb-2">Planilha de Orçamento</h3>
-        <p class="text-sm text-mute">Calculadora editável com cenários econômico, médio e premium. Edite com seus números reais.</p>
-      </div>
-      <div class="border border-cream-dark p-6 rounded-lg">
-        <div class="text-3xl mb-4">✅</div>
-        <h3 class="serif text-lg font-bold text-burgundy mb-2">Checklists de Preparação</h3>
-        <p class="text-sm text-mute">O que reservar quando, o que levar na mala, documentos, câmbio. Para você não esquecer nada.</p>
-      </div>
-      <div class="border border-cream-dark p-6 rounded-lg">
-        <div class="text-3xl mb-4">📚</div>
-        <h3 class="serif text-lg font-bold text-burgundy mb-2">Templates em Espanhol</h3>
-        <p class="text-sm text-mute">Mensagens prontas para reservar vinícolas e restaurantes — copia, cola e envia.</p>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- ============ OFERTA ============ -->
-<section id="oferta" class="py-20 lg:py-28 bg-burgundy text-cream">
-  <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-    <p class="text-gold-light uppercase tracking-[0.2em] text-sm font-semibold mb-4">Oferta de lançamento</p>
-    <h2 class="serif text-4xl md:text-5xl font-bold text-cream mb-6 text-balance">
-      Garanta seu acesso por um <span class="italic text-gold-light">único pagamento</span>
-    </h2>
-    <p class="text-cream/80 mb-12 max-w-2xl mx-auto text-lg">
-      Preço promocional durante o lançamento. Na próxima atualização (versão V2 com fotos próprias da viagem de julho), o preço sobe para R$ 97 — quem comprou agora recebe sem custo.
-    </p>
+<section id="oferta" class="py-20 lg:py-28 bg-burgundy text-cream relative overflow-hidden">
+  <!-- Padrão decorativo -->
+  <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 10% 10%, #D4A028 0%, transparent 40%), radial-gradient(circle at 90% 90%, #D4A028 0%, transparent 40%);"></div>
 
-    <div class="bg-white text-ink rounded-xl p-8 md:p-12 max-w-2xl mx-auto shadow-2xl shadow-black/30">
-      <div class="flex items-center justify-center gap-3 mb-4">
-        <span class="price-strike text-2xl">R$ 97</span>
-        <span class="bg-gold text-burgundy-dark text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">31% OFF</span>
+  <div class="relative max-w-5xl mx-auto px-6 lg:px-12">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 bg-gold/15 border border-gold/40 text-gold-soft text-xs tracking-[0.2em] uppercase font-semibold">
+        <span class="w-1.5 h-1.5 rounded-full bg-gold-light badge-pulse"></span>
+        Oferta de lançamento · até a V2 (ago/26)
       </div>
-      <div class="serif text-6xl md:text-7xl font-bold text-burgundy mb-2">R$ 67</div>
-      <p class="text-sm text-mute mb-8">à vista · ou em até 12x no cartão</p>
+      <h2 class="serif text-4xl md:text-5xl font-bold text-cream mb-6 text-balance leading-[1.1]">
+        Garanta seu acesso por um <span class="italic text-gold-light">único pagamento</span>
+      </h2>
+      <p class="text-cream/80 max-w-2xl mx-auto text-lg text-pretty">
+        Preço de lançamento durante a V1. Em agosto/2026, com a V2 e fotos próprias da viagem, sobe para R$ 97 — quem comprou agora recebe sem custo extra.
+      </p>
+    </div>
 
-      <ul class="text-left space-y-3 mb-8 max-w-md mx-auto">
-        <li class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-          <span class="text-sm">Ebook completo (138 páginas) em PDF + ePub</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-          <span class="text-sm">Mapa Google My Maps com 30+ pins curados</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-          <span class="text-sm">Planilha de orçamento editável</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-          <span class="text-sm">Checklists de preparação</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-          <span class="text-sm">Templates de mensagem em espanhol</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-          <span class="text-sm"><strong>Atualização vitalícia</strong> — todas as próximas versões grátis</span>
-        </li>
-      </ul>
+    <div class="bg-white text-ink rounded-xl p-6 md:p-12 max-w-3xl mx-auto shadow-2xl shadow-black/40 relative">
+      <!-- Badge superior -->
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-burgundy-dark text-gold-soft text-xs font-bold uppercase tracking-[0.2em] px-5 py-2 rounded-full whitespace-nowrap">
+        Pacote completo
+      </div>
 
-      <a href="#" class="btn-primary inline-block text-burgundy-dark font-bold px-10 py-4 text-lg tracking-wide w-full md:w-auto">
-        Comprar agora pela Hotmart →
-      </a>
-      <p class="text-xs text-mute mt-4">Pagamento processado pela Hotmart · Acesso liberado por e-mail em até 5 minutos</p>
+      <!-- Stack de valor -->
+      <div class="mb-8 mt-2">
+        <p class="text-xs uppercase tracking-wider text-mute font-semibold mb-4 text-center">O que está incluído</p>
+        <div class="space-y-2 text-sm">
+          <div class="flex items-center justify-between py-2 border-b border-cream-dark/50">
+            <span class="text-ink/85">Ebook completo · 138 págs · PDF + ePub</span>
+            <span class="text-mute font-medium">R$ 97</span>
+          </div>
+          <div class="flex items-center justify-between py-2 border-b border-cream-dark/50">
+            <span class="text-ink/85">Mapa Google My Maps · 30+ pins curados</span>
+            <span class="text-mute font-medium">R$ 47</span>
+          </div>
+          <div class="flex items-center justify-between py-2 border-b border-cream-dark/50">
+            <span class="text-ink/85">Planilha de orçamento editável</span>
+            <span class="text-mute font-medium">R$ 27</span>
+          </div>
+          <div class="flex items-center justify-between py-2 border-b border-cream-dark/50">
+            <span class="text-ink/85">Checklists de preparação</span>
+            <span class="text-mute font-medium">R$ 17</span>
+          </div>
+          <div class="flex items-center justify-between py-2 border-b border-cream-dark/50">
+            <span class="text-ink/85">Templates de mensagem em espanhol</span>
+            <span class="text-mute font-medium">R$ 27</span>
+          </div>
+          <div class="flex items-center justify-between py-2">
+            <span class="text-ink/85"><strong>Atualização vitalícia</strong> — todas as próximas versões</span>
+            <span class="text-burgundy font-bold uppercase text-xs tracking-wider">incalculável</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between py-3 mt-2 border-t-2 border-burgundy/20">
+          <span class="font-semibold text-burgundy">Valor total se comprado em separado</span>
+          <span class="price-strike text-lg">R$ 215+</span>
+        </div>
+      </div>
+
+      <!-- Preço -->
+      <div class="text-center bg-cream rounded-lg p-6 md:p-8">
+        <div class="flex items-center justify-center gap-3 mb-2">
+          <span class="text-sm text-mute">Hoje, no lançamento</span>
+          <span class="bg-gold text-burgundy-dark text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">69% OFF</span>
+        </div>
+        <div class="flex items-baseline justify-center gap-2 mb-1">
+          <span class="text-lg text-mute">R$</span>
+          <span class="serif text-7xl md:text-8xl font-bold text-burgundy leading-none">67</span>
+        </div>
+        <p class="text-sm text-mute mb-6">à vista no Pix · ou em até <strong>12x de R$ 6,90</strong> no cartão</p>
+
+        <a href="#" class="btn-primary inline-block text-burgundy-dark font-bold px-10 py-5 text-lg tracking-wide w-full md:w-auto rounded">
+          Quero meu acesso vitalício →
+        </a>
+        <p class="text-xs text-mute mt-4">
+          <svg class="w-3 h-3 inline -mt-0.5 mr-1 text-success" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+          Pagamento processado pela Hotmart · Acesso liberado por e-mail em até 5 minutos
+        </p>
+      </div>
+
+      <p class="text-xs text-mute text-center mt-6 italic">
+        No próximo passo (checkout Hotmart), você verá um upgrade opcional — o <strong>Kit Logística VIP</strong> por R$ 19,90, com contatos diretos das vinícolas, motoristas testados e restaurantes secretos. Marca ou desmarca, fica a seu critério.
+      </p>
     </div>
   </div>
 </section>
 
 <!-- ============ GARANTIA ============ -->
-<section class="py-16 bg-cream">
-  <div class="max-w-3xl mx-auto px-6 text-center">
-    <div class="inline-block p-3 mb-6 rounded-full bg-gold/10 border-2 border-gold/40">
-      <svg class="w-12 h-12 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-8-3z"></path></svg>
+<section class="py-24 lg:py-28 bg-cream">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-14 text-center border-2 border-gold/40 relative">
+
+      <!-- Selo gigante -->
+      <div class="seal w-40 h-40 md:w-44 md:h-44 rounded-full mx-auto -mt-28 md:-mt-32 mb-8 flex items-center justify-center text-cream relative">
+        <div class="absolute inset-2 rounded-full border-2 border-cream/30"></div>
+        <div class="text-center relative">
+          <div class="serif text-7xl md:text-8xl font-bold italic leading-none">7</div>
+          <div class="text-[11px] md:text-xs uppercase tracking-[0.3em] font-bold mt-1">dias</div>
+        </div>
+      </div>
+
+      <p class="text-gold uppercase tracking-[0.25em] text-xs font-bold mb-3">Garantia total</p>
+      <h2 class="serif text-3xl md:text-5xl font-bold text-burgundy mb-2 leading-[1.1] text-balance">
+        <span class="italic">7 dias</span> para testar.<br>Zero risco para você.
+      </h2>
+      <span class="gold-divider mt-6 mb-8"></span>
+
+      <p class="text-lg md:text-xl text-ink/85 leading-relaxed text-pretty max-w-2xl mx-auto">
+        Você compra, baixa, lê. Se em <strong class="text-burgundy">7 dias</strong> achar que o guia não vale o que pagou, pede reembolso pela Hotmart e <strong>recebe 100% de volta</strong>. Sem perguntas. Sem formulário. Sem burocracia.
+      </p>
+
+      <!-- Badges de reforço -->
+      <div class="mt-10 grid grid-cols-3 gap-3 md:gap-6 max-w-2xl mx-auto">
+        <div class="bg-cream rounded-lg p-4">
+          <div class="serif text-2xl md:text-3xl font-bold text-burgundy italic mb-1">7</div>
+          <div class="text-[10px] md:text-xs uppercase tracking-wider text-mute font-semibold leading-tight">dias completos</div>
+        </div>
+        <div class="bg-cream rounded-lg p-4">
+          <div class="serif text-2xl md:text-3xl font-bold text-burgundy italic mb-1">100%</div>
+          <div class="text-[10px] md:text-xs uppercase tracking-wider text-mute font-semibold leading-tight">do valor de volta</div>
+        </div>
+        <div class="bg-cream rounded-lg p-4">
+          <div class="serif text-2xl md:text-3xl font-bold text-burgundy italic mb-1">0</div>
+          <div class="text-[10px] md:text-xs uppercase tracking-wider text-mute font-semibold leading-tight">pergunta feita</div>
+        </div>
+      </div>
+
+      <p class="mt-8 text-base md:text-lg text-mute italic">"O risco é todo meu. O guia ou se prova, ou se reembolsa."</p>
     </div>
-    <h2 class="serif text-3xl md:text-4xl font-bold text-burgundy mb-4">Garantia incondicional de 7 dias</h2>
-    <p class="text-lg text-ink/80 leading-relaxed">
-      Se você abrir o guia e achar que não é pra você, peça reembolso em até 7 dias e devolvemos 100% do valor. Sem perguntas, sem burocracia. O risco é todo meu.
-    </p>
   </div>
 </section>
 
@@ -449,88 +848,108 @@
 <section class="py-20 lg:py-28 bg-white">
   <div class="max-w-3xl mx-auto px-6 lg:px-12">
     <div class="text-center mb-16">
-      <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">Dúvidas frequentes</p>
-      <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy text-balance">Perguntas que recebo direto</h2>
+      <p class="text-gold uppercase tracking-[0.2em] text-sm font-semibold mb-4">Perguntas frequentes</p>
+      <h2 class="serif text-4xl md:text-5xl font-bold text-burgundy text-balance leading-[1.1]">Antes de comprar, você provavelmente quer saber</h2>
     </div>
 
     <div class="space-y-3">
       <details class="border-b border-cream-dark pb-4">
-        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy">
+        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy gap-4">
           <span>Eu sou iniciante em vinho. Vou conseguir aproveitar?</span>
-          <span class="faq-icon text-2xl text-gold">+</span>
+          <span class="faq-icon text-2xl text-gold flex-shrink-0">+</span>
         </summary>
-        <p class="mt-3 text-mute leading-relaxed">
-          Sim. O guia foi escrito assumindo que você não é especialista. Termos técnicos têm definição inline (terroir, taninos, biodinâmico, etc.) e o Apêndice B é um glossário completo. Existe inclusive um perfil "casal iniciante" com roteiro próprio.
+        <p class="mt-3 text-mute leading-relaxed text-pretty">
+          Sim. O guia foi escrito assumindo que você não é especialista. Termos técnicos têm definição inline (terroir, taninos, biodinâmico) e o Apêndice B é um glossário ilustrado completo. O perfil "Casal Romance" tem um roteiro pensado especificamente para quem está chegando agora ao mundo do vinho.
         </p>
       </details>
 
       <details class="border-b border-cream-dark pb-4">
-        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy">
-          <span>Funciona no celular?</span>
-          <span class="faq-icon text-2xl text-gold">+</span>
+        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy gap-4">
+          <span>Funciona no celular? Preciso de Kindle?</span>
+          <span class="faq-icon text-2xl text-gold flex-shrink-0">+</span>
         </summary>
-        <p class="mt-3 text-mute leading-relaxed">
-          Sim. Você recebe em PDF e ePub. O PDF lê bem em qualquer leitor (Apple Books, Google Play Livros, Adobe Acrobat). O ePub é ideal para Kindle. Use no celular durante a viagem.
+        <p class="mt-3 text-mute leading-relaxed text-pretty">
+          Funciona em qualquer dispositivo. Você recebe em PDF e ePub. O PDF abre em Apple Books, Google Play Livros, Adobe Acrobat, qualquer leitor. O ePub é ideal para Kindle. Eu uso no celular durante a viagem — abre offline.
         </p>
       </details>
 
       <details class="border-b border-cream-dark pb-4">
-        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy">
-          <span>Como recebo as atualizações?</span>
-          <span class="faq-icon text-2xl text-gold">+</span>
+        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy gap-4">
+          <span>Como funciona a atualização vitalícia?</span>
+          <span class="faq-icon text-2xl text-gold flex-shrink-0">+</span>
         </summary>
-        <p class="mt-3 text-mute leading-relaxed">
-          Pelo mesmo e-mail que você usar na compra. Toda nova versão é enviada automaticamente — você não precisa pedir nem pagar nada. A próxima versão grande sai em agosto/2026 (V2) com fotos próprias da viagem.
+        <p class="mt-3 text-mute leading-relaxed text-pretty">
+          Cada nova versão é enviada automaticamente para o e-mail que você usou na compra. Você não precisa pedir nem pagar nada. A próxima versão grande (V2) sai em agosto/2026, com fotos próprias da minha viagem em julho. Depois disso, atualizo sempre que algo importante muda em Mendoza — câmbio, voos, vinícolas novas, regras de visto.
         </p>
       </details>
 
       <details class="border-b border-cream-dark pb-4">
-        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy">
-          <span>Vou para Mendoza ainda este ano. O guia já cobre 2026?</span>
-          <span class="faq-icon text-2xl text-gold">+</span>
+        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy gap-4">
+          <span>Vou para Mendoza esse ano. O guia já cobre 2026?</span>
+          <span class="faq-icon text-2xl text-gold flex-shrink-0">+</span>
         </summary>
-        <p class="mt-3 text-mute leading-relaxed">
-          Sim. O guia foi totalmente atualizado em maio de 2026 — incluindo o novo cenário cambial pós-cepo, voos diretos atualizados, preços de vinícolas e restaurantes correntes, e calendário de eventos até 2027 (com a próxima Vendimia).
+        <p class="mt-3 text-mute leading-relaxed text-pretty">
+          Cobre. Foi todo atualizado em maio/2026 — incluindo o cenário cambial pós-cepo, voos diretos atuais, preços de vinícolas e restaurantes, e calendário de eventos até a Vendimia 2027.
         </p>
       </details>
 
       <details class="border-b border-cream-dark pb-4">
-        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy">
-          <span>Preciso de cartão internacional para comprar?</span>
-          <span class="faq-icon text-2xl text-gold">+</span>
+        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy gap-4">
+          <span>E se eu não conseguir reservar a Catena Zapata?</span>
+          <span class="faq-icon text-2xl text-gold flex-shrink-0">+</span>
         </summary>
-        <p class="mt-3 text-mute leading-relaxed">
-          Não. A compra é feita pela Hotmart, com pagamento em reais (Pix, boleto ou cartão de crédito brasileiro). Você pode parcelar em até 12x no cartão.
+        <p class="mt-3 text-mute leading-relaxed text-pretty">
+          Esse é exatamente o tipo de coisa que o capítulo de protocolo de reservas resolve. Catena exige reserva com 60–90 dias de antecedência, formulário em inglês, e tem janelas específicas. O guia mostra o passo a passo — e dá alternativas equivalentes em qualidade caso você esteja em cima da hora (Achaval-Ferrer, Mendel, El Enemigo são todas excelentes substitutas).
         </p>
       </details>
 
       <details class="border-b border-cream-dark pb-4">
-        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy">
-          <span>E se eu não gostar?</span>
-          <span class="faq-icon text-2xl text-gold">+</span>
+        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy gap-4">
+          <span>Preciso de cartão internacional para comprar o guia?</span>
+          <span class="faq-icon text-2xl text-gold flex-shrink-0">+</span>
         </summary>
-        <p class="mt-3 text-mute leading-relaxed">
-          Devolução incondicional em 7 dias. Você abre, lê, e se achar que não vale, pede reembolso pela Hotmart e recebe 100% de volta. Sem perguntas.
+        <p class="mt-3 text-mute leading-relaxed text-pretty">
+          Não. A compra é pela Hotmart, em reais. Você paga por Pix, boleto, ou cartão de crédito brasileiro (parcelando em até 12x).
         </p>
       </details>
 
       <details class="border-b border-cream-dark pb-4">
-        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy">
+        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy gap-4">
           <span>Vai servir se eu já fui a Mendoza?</span>
-          <span class="faq-icon text-2xl text-gold">+</span>
+          <span class="faq-icon text-2xl text-gold flex-shrink-0">+</span>
         </summary>
-        <p class="mt-3 text-mute leading-relaxed">
-          Sim, especialmente se foi há mais de um ano. O cenário cambial mudou bastante depois do fim do cepo. Vinícolas top abriram experiências novas. E o roteiro Entusiasta Técnico cobre lugares que muita gente não conhece — SuperUco, Bressia, Mendel.
+        <p class="mt-3 text-mute leading-relaxed text-pretty">
+          Sim, especialmente se foi há mais de um ano. O cenário cambial mudou completamente depois do fim do cepo. Vinícolas top abriram experiências novas. O roteiro Entusiasta Técnico cobre lugares que muita gente que já foi não conhece — SuperUco biodinâmica, Bressia, Mendel, Tanino.
         </p>
       </details>
 
       <details class="border-b border-cream-dark pb-4">
-        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy">
-          <span>Posso comprar como presente?</span>
-          <span class="faq-icon text-2xl text-gold">+</span>
+        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy gap-4">
+          <span>E se eu já tenho meu roteiro pronto?</span>
+          <span class="faq-icon text-2xl text-gold flex-shrink-0">+</span>
         </summary>
-        <p class="mt-3 text-mute leading-relaxed">
-          Pode. Na hora da compra, use o e-mail do destinatário. Ele recebe acesso direto. Se preferir, me escreva (gabriel.oliveira.alves@gmail.com) e eu envio uma carta de presente personalizada para anexar.
+        <p class="mt-3 text-mute leading-relaxed text-pretty">
+          Use o guia como camada de validação. Compare seu roteiro com o que recomendo, leia o capítulo de câmbio (que vai se pagar sozinho independente do roteiro), e use os bônus — mapa, planilha, checklists, templates de mensagem em espanhol. Garantia de 7 dias se mesmo assim você achar que não valeu.
+        </p>
+      </details>
+
+      <details class="border-b border-cream-dark pb-4">
+        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy gap-4">
+          <span>Posso comprar como presente?</span>
+          <span class="faq-icon text-2xl text-gold flex-shrink-0">+</span>
+        </summary>
+        <p class="mt-3 text-mute leading-relaxed text-pretty">
+          Pode. Na hora da compra, use o e-mail do destinatário. Ele recebe acesso direto. Se preferir, me escreva (gabriel.oliveira.alves@gmail.com) que eu envio uma carta de presente personalizada em PDF para você anexar.
+        </p>
+      </details>
+
+      <details class="border-b border-cream-dark pb-4">
+        <summary class="flex justify-between items-center py-3 text-lg font-semibold text-burgundy gap-4">
+          <span>E se eu não gostar?</span>
+          <span class="faq-icon text-2xl text-gold flex-shrink-0">+</span>
+        </summary>
+        <p class="mt-3 text-mute leading-relaxed text-pretty">
+          Devolução incondicional em 7 dias pela própria Hotmart. Você abre, lê, e se achar que não valeu, pede o reembolso e recebe 100% de volta. Sem perguntas, sem formulário, sem ressentimento.
         </p>
       </details>
     </div>
@@ -538,41 +957,62 @@
 </section>
 
 <!-- ============ CTA FINAL ============ -->
-<section class="relative py-20 lg:py-28 text-white overflow-hidden">
-  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EBedCC3yZKTLtLYiZrAU83CtdO/hf_20260527_083913_794efa22-62e7-404a-9de2-f4cf7fb1e190.png"
-       alt="" class="absolute inset-0 w-full h-full object-cover">
-  <div class="absolute inset-0 bg-burgundy-dark/85"></div>
+<section class="relative py-24 lg:py-32 bg-burgundy-deep text-cream overflow-hidden">
+  <!-- Padrão decorativo sutil -->
+  <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 15% 20%, #D4A028 0%, transparent 40%), radial-gradient(circle at 85% 80%, #D4A028 0%, transparent 40%);"></div>
+
+  <!-- Linha decorativa superior -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gold"></div>
 
   <div class="relative max-w-3xl mx-auto px-6 text-center">
-    <h2 class="serif text-4xl md:text-5xl font-bold text-cream mb-6 text-balance">
-      Mendoza está esperando.<br>O guia também.
+    <p class="text-gold-light uppercase tracking-[0.25em] text-xs md:text-sm font-bold mb-6">Última chance no preço de lançamento</p>
+    <h2 class="serif text-4xl md:text-6xl font-bold text-cream mb-6 text-balance leading-[1.05] tracking-tight">
+      Mendoza está esperando.<br><span class="italic text-gold-light">O guia também.</span>
     </h2>
-    <p class="text-lg text-cream/80 mb-10 leading-relaxed">
-      R$ 67 no preço de lançamento. Atualização vitalícia. Garantia de 7 dias.
+    <p class="text-lg md:text-xl text-cream/85 mb-10 leading-relaxed text-pretty max-w-xl mx-auto">
+      R$ 67 no preço de lançamento, até agosto/26.<br class="hidden md:block">
+      Acesso vitalício · 7 dias de garantia · Pagamento único.
     </p>
-    <a href="#oferta" class="btn-primary inline-block text-burgundy-dark font-bold px-10 py-4 text-lg tracking-wide">
-      Garantir o meu agora →
+    <a href="#oferta" class="btn-primary inline-block text-burgundy-dark font-bold px-10 py-5 text-lg tracking-wide rounded">
+      Garantir o meu por R$ 67 →
     </a>
+    <p class="mt-6 text-xs text-cream/60 uppercase tracking-[0.2em] font-semibold">
+      Pix · Cartão · Boleto · Acesso em até 5 min
+    </p>
   </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="bg-burgundy-dark text-cream/70 py-12">
+<footer class="bg-burgundy-deep text-cream/70 py-12">
   <div class="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-3 gap-8 text-sm">
     <div>
       <p class="serif text-cream text-xl font-bold mb-3">O Guia Definitivo de Mendoza</p>
-      <p class="text-cream/60">Vinícolas, roteiros e câmbio para brasileiros · Edição 2026</p>
+      <p class="text-cream/60">Vinícolas, roteiros e câmbio para brasileiros · Edição 2026 · Versão viva</p>
     </div>
     <div>
       <p class="font-semibold text-cream mb-3">Contato</p>
-      <a href="mailto:gabriel.oliveira.alves@gmail.com" class="text-cream/70 hover:text-gold-light">gabriel.oliveira.alves@gmail.com</a>
+      <a href="mailto:gabriel.oliveira.alves@gmail.com" class="text-cream/70 hover:text-gold-light transition">gabriel.oliveira.alves@gmail.com</a>
     </div>
     <div>
       <p class="font-semibold text-cream mb-3">Legal</p>
-      <p class="text-cream/60 text-xs leading-relaxed">© 2026 Gabriel Oliveira. Todos os direitos reservados. Pagamento processado pela Hotmart. Política de reembolso: 7 dias.</p>
+      <p class="text-cream/60 text-xs leading-relaxed">© 2026 Gabriel Oliveira. Todos os direitos reservados.<br>Pagamento processado pela Hotmart. Política de reembolso: 7 dias incondicional.</p>
     </div>
   </div>
 </footer>
+
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="sticky-cta fixed bottom-0 left-0 right-0 z-40 md:hidden bg-burgundy-deep border-t border-gold/30 px-4 py-3 flex items-center justify-between gap-3">
+  <div>
+    <div class="text-[10px] uppercase tracking-wider text-cream/60">Oferta de lançamento</div>
+    <div class="flex items-baseline gap-2">
+      <span class="text-cream/50 text-xs line-through">R$ 97</span>
+      <span class="text-cream font-bold text-lg">R$ 67</span>
+    </div>
+  </div>
+  <a href="#oferta" class="btn-primary text-burgundy-dark font-bold px-5 py-3 text-sm rounded whitespace-nowrap">
+    Quero o meu →
+  </a>
+</div>
 
 </body>
 </html>
